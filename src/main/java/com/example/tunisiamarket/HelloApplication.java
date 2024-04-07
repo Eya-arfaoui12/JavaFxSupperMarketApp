@@ -1,4 +1,4 @@
-package com.example.javafxsuppermarketapp;
+package com.example.tunisiamarket;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

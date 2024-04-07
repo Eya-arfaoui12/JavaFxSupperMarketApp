@@ -71,7 +71,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.javafxsuppermarketapp/com.example.javafxsuppermarketapp.HelloApplication
+                                com.example.javafxsuppermarketapp/com.example.tunisiamarket.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

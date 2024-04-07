@@ -1,4 +1,4 @@
-package com.example.javafxsuppermarketapp;
+package com.example.tunisiamarket;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

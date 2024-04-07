@@ -4,6 +4,6 @@ module com.example.javafxsuppermarketapp {
 
     requires com.dlsc.formsfx;
 
-    opens com.example.javafxsuppermarketapp to javafx.fxml;
-    exports com.example.javafxsuppermarketapp;
+    opens com.example.tunisiamarket to javafx.fxml;
+    exports com.example.tunisiamarket;
 }
