@@ -9,17 +9,17 @@
 
 <AnchorPane prefHeight="465.0" prefWidth="647.0" styleClass="body" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="254.0" layoutY="147.0" prefHeight="44.0" prefWidth="302.0" promptText="username" />
-      <TextField layoutX="254.0" layoutY="241.0" prefHeight="44.0" prefWidth="302.0" promptText="password" />
+      <TextField layoutX="319.0" layoutY="146.0" prefHeight="44.0" prefWidth="302.0" promptText="username" />
+      <TextField layoutX="319.0" layoutY="233.0" prefHeight="44.0" prefWidth="302.0" promptText="password" />
       <Button layoutX="377.0" layoutY="323.0" mnemonicParsing="false" text="Sign in" />
       <Button layoutX="486.0" layoutY="323.0" mnemonicParsing="false" text="Sign up" />
-      <Label layoutX="254.0" layoutY="119.0" prefHeight="18.0" prefWidth="105.0" text="Username" />
-      <Label layoutX="254.0" layoutY="214.0" prefHeight="18.0" prefWidth="105.0" text="Password" />
+      <Label layoutX="307.0" layoutY="118.0" prefHeight="18.0" prefWidth="105.0" text="Username" />
+      <Label layoutX="307.0" layoutY="206.0" prefHeight="18.0" prefWidth="105.0" text="Password" />
       <ImageView fitHeight="168.0" fitWidth="180.0" layoutX="319.0" layoutY="-31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/Tunisiamarket.png" />
          </image>
       </ImageView>
-      <AnchorPane prefHeight="466.0" prefWidth="236.0" styleClass="body" stylesheets="@../style/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane prefHeight="466.0" prefWidth="287.0" styleClass="body" stylesheets="@../style/style.css" />
    </children>
 </AnchorPane>
