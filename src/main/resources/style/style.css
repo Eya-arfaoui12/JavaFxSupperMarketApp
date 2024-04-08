@@ -6,6 +6,13 @@
     -fx-background-position: center;
     -fx-background-size: 100% 100%;
 }
+.body_right{
+
+
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100% 100%;
+}
 .button1
 {
 -fx-background-color : #393351;
@@ -24,7 +31,8 @@
 
 .button2
 {
--fx-background-color : #393351;
+-fx-background-color : rgb(179, 155, 213) ;
+
 -fx-background-radius :  20;
 }
 .button2:hover
@@ -54,7 +62,7 @@
 
 .button4
 {
-    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-color :linear-gradient(to top left, rgb(179, 155, 213), #D4CEE3);
     -fx-background-radius :  30 30 30 30;
 }
 .button4:hover

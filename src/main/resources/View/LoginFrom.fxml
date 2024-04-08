@@ -3,23 +3,33 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="465.0" prefWidth="647.0" styleClass="body" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="254.0" layoutY="147.0" prefHeight="44.0" prefWidth="302.0" promptText="username" />
-      <TextField layoutX="254.0" layoutY="241.0" prefHeight="44.0" prefWidth="302.0" promptText="password" />
-      <Button layoutX="377.0" layoutY="323.0" mnemonicParsing="false" text="Sign in" />
-      <Button layoutX="486.0" layoutY="323.0" mnemonicParsing="false" text="Sign up" />
-      <Label layoutX="254.0" layoutY="119.0" prefHeight="18.0" prefWidth="105.0" text="Username" />
-      <Label layoutX="254.0" layoutY="214.0" prefHeight="18.0" prefWidth="105.0" text="Password" />
-      <ImageView fitHeight="168.0" fitWidth="180.0" layoutX="319.0" layoutY="-31.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/Tunisiamarket.png" />
-         </image>
-      </ImageView>
-      <AnchorPane prefHeight="466.0" prefWidth="236.0" styleClass="body" stylesheets="@../style/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TextField layoutX="312.0" layoutY="188.0" prefHeight="35.0" prefWidth="302.0" promptText="username" />
+      <Button layoutX="569.0" layoutY="25.0" mnemonicParsing="false" styleClass="button2" stylesheets="@../style/style.css" text="Sign up" />
+      <Button layoutX="404.0" layoutY="347.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="118.0" styleClass="button4" stylesheets="@../style/style.css" text="Login" />
+      <Label layoutX="312.0" layoutY="162.0" prefHeight="18.0" prefWidth="105.0" text="Username">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font></Label>
+      <Label layoutX="312.0" layoutY="244.0" prefHeight="18.0" prefWidth="105.0" text="Password">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font></Label>
+      <AnchorPane prefHeight="465.0" prefWidth="274.0" styleClass="body" stylesheets="@../style/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TextField layoutX="312.0" layoutY="270.0" prefHeight="35.0" prefWidth="302.0" promptText="username" />
+      <Label layoutX="443.0" layoutY="31.0" text="Don't have an account ?">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="342.0" layoutY="100.0" text="Welcome to TunisiaMarket !">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
