@@ -67,12 +67,12 @@
 }
 .button4:hover
 {
-    -fx-background-color :linear-gradient(to top left, #D4CEE3, #41951C);
+    -fx-background-color :linear-gradient(to top left, rgb(179, 155, 213),#b39bd5);
     -fx-background-radius :  30 30 30 30;
 }
 .button4:pressed
 {
-    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-color :linear-gradient(to top left, rgb(179, 155, 213), #D4CEE3);
     -fx-background-radius :  30 30 30 30;
 }
 
