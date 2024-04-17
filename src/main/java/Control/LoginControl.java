@@ -8,9 +8,9 @@ import java.sql.Statement;
 
 public class LoginControl {
     Statement sta; //class fel DB , bech yefhm beha les requetes
-    boolean isLogin(Login Lo)throws SQLException {
+    public boolean isLogin(Login lo)throws SQLException {
        sta = ConnectionDB.openConnection().createStatement();
-        ResultSet res = sta.executeQuery("select * from user_login where username='"+Lo.getUsername()+"' and password='" +Lo.getPassword()+"'");
+        ResultSet res = sta.executeQuery("select * from user_login where username='"+lo.getUsername()+"' and password='" +lo.getPassword()+"'");
         if(res.next())
             return true;
         return false;

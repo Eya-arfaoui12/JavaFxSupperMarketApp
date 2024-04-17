@@ -12,7 +12,7 @@ public class Login {
     public String getPassword() {
         return password;
     }
-    public void setPassword(){
+    public void setPassword(String text){
         this.password = password;
     }
 }
