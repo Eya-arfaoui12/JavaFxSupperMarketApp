@@ -7,4 +7,7 @@ module com.example.javafxsuppermarketapp {
 
     opens com.example.tunisiamarket to javafx.fxml;
     exports com.example.tunisiamarket;
+    exports ViewControl;
+    opens ViewControl;
+
 }

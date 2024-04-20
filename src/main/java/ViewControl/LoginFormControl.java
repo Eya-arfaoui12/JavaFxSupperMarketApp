@@ -1,5 +1,6 @@
-package Control;
+package ViewControl;
 
+import Control.LoginControl;
 import ModelLogin.Login;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -25,7 +26,7 @@ public class LoginFormControl {
     @FXML
     Button btnLog;
     @FXML
-    Button btnSig;
+    Button btnsig;
     @FXML
     Label errorMSG;
     Login lo = new Login();
@@ -41,11 +42,11 @@ public class LoginFormControl {
             Node node = (Node) e.getSource() ;
             Stage stage = (Stage) node.getScene().getWindow();
 
-// stage. close();
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/LoginFrom.fxml")));
+                // stage.close();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Home.fxml")));
             Scene scene = new Scene(root);
-            stage.setScene(scene) ;
-            stage.show() ;
+            stage.setScene(scene); ;
+            stage.show();
 
         }else{
             errorMSG.setText("username or password is wrong!!!");
