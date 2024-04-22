@@ -16,43 +16,39 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Objects;
+
 
 public class LoginFormControl {
     @FXML
-    TextField textUser;
+    private TextField textUser;
     @FXML
-    PasswordField textpass;
+    private PasswordField textpass;
     @FXML
-    Button btnLog;
+    private Button btnLog;
     @FXML
-    Button btnsig;
+    private Button btnsig;
     @FXML
-    Label errorMSG;
-    Login lo = new Login();
-    LoginControl lgc = new LoginControl();
+    private Label errorMSG;
+    private final LoginControl lgc = new LoginControl();
 
-    public void Login(Event e) throws SQLException, IOException {
+    @FXML
+    public void Login(Event e) {
+        String username = textUser.getText();
+        String password = textpass.getText();
 
-        lo.setUsername(textUser.getText());
-        lo.setPassword(textpass.getText());
-
-        if (lgc.isLogin(lo)){
-
-            Node node = (Node) e.getSource() ;
-            Stage stage = (Stage) node.getScene().getWindow();
-
-                // stage.close();
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Home.fxml")));
-            Scene scene = new Scene(root);
-            stage.setScene(scene); ;
-            stage.show();
-
-        }else{
-            errorMSG.setText("username or password is wrong!!!");
+        try {
+            if (lgc.isLogin(username,password)) {
+                Node node = (Node) e.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("/View/Home.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                errorMSG.setText("Username or password is incorrect.");
+            }
+        } catch (SQLException | IOException ex) {
+            ex.printStackTrace(); // Gérer l'exception de manière appropriée
         }
-
     }
-
-
 }

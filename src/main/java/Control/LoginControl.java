@@ -2,17 +2,35 @@ package Control;
 
 import ModelLogin.Login;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class LoginControl {
-    Statement sta; //class fel DB , bech yefhm beha les requetes
-    public boolean isLogin(Login lo)throws SQLException {
-       sta = ConnectionDB.openConnection().createStatement();
-        ResultSet res = sta.executeQuery("select * from user_login where username='"+lo.getUsername()+"' and password='" +lo.getPassword()+"'");
-        if(res.next())
-            return true;
-        return false;
+    public boolean isLogin(String username, String password) throws SQLException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = ConnectionDB.openConnection();
+            String query = "SELECT * FROM user_login WHERE username=? AND password=?";
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            rs = stmt.executeQuery();
+            return rs.next();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
     }
 }

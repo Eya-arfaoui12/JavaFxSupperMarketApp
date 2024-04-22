@@ -75,7 +75,9 @@
     -fx-background-color :linear-gradient(to top left, rgb(179, 155, 213), #D4CEE3);
     -fx-background-radius :  30 30 30 30;
 }
-
+.home{
+-fx-background-color : #D4CEE3
+}
 
 .combo-box
 {
