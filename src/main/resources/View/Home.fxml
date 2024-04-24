@@ -13,7 +13,6 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="655.0" styleClass="body" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="198.0" prefHeight="435.0" prefWidth="455.0">
@@ -209,7 +208,7 @@
             <VBox layoutX="14.0" layoutY="70.0" prefHeight="374.0" prefWidth="185.0" style="-fx-background-color: blue;">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button graphicTextGap="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="185.0" styleClass="button2" text="Products" />
+                  <Button graphicTextGap="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="185.0" styleClass="button2" text="hellohello" />
                   <Button graphicTextGap="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="185.0" styleClass="button2" text="Services" />
                   <Button graphicTextGap="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="185.0" styleClass="button2" text="Employee" />
                   <Button graphicTextGap="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="185.0" styleClass="button2" text="Statistic" />
