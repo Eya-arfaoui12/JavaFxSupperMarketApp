@@ -7,16 +7,25 @@ import java.sql.SQLException;
 
 public class ConnectionDB {
 
+    private static Connection conn = null;
 
-    private static Connection conn = null ;
-    private ConnectionDB(){
+    private ConnectionDB() {}
 
-    }
     public static Connection openConnection() throws SQLException {
+        if (conn == null || conn.isClosed()) {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/tunisiamarket", "root", "");
+        }
+        return conn;
+    }
 
-        if (conn == null)
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tunisiamarket", "root", "");
-                return conn;
-
+    public static void closeConnection(Connection connection) {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        } catch (SQLException ex) {
+            // Gérer l'exception, par exemple en affichant un message d'erreur
+            ex.printStackTrace();
+        }
     }
 }

@@ -9,5 +9,8 @@ module com.example.javafxsuppermarketapp {
     exports com.example.tunisiamarket;
     exports ViewControl;
     opens ViewControl;
+    exports Control;
+    opens Control;
+    opens ModelProduct;
 
 }
