@@ -4,7 +4,6 @@ package Control;
 import ModelProduct.ProductModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
