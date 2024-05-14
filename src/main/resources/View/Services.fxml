@@ -56,7 +56,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Label fx:id="productlabel" layoutX="148.0" layoutY="14.0" prefHeight="26.0" prefWidth="106.0" style="-fx-border-color: #6A5ACD; -fx-border-radius: 20;" text="  Sales">
+      <Label fx:id="productlabel" layoutX="171.0" layoutY="14.0" prefHeight="26.0" prefWidth="106.0" style="-fx-border-color: #6A5ACD; -fx-border-radius: 20;" text="  Sales">
          <font>
             <Font name="Book Antiqua" size="20.0" />
          </font>
