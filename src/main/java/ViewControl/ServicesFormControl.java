@@ -39,7 +39,7 @@ public class ServicesFormControl implements Initializable {
     @FXML
     private Button btnSearch;
     @FXML
-    private Button back;
+    private Button btnBack;
     @FXML
     private Button print;
     @FXML
@@ -60,8 +60,7 @@ public class ServicesFormControl implements Initializable {
             Node node = (Node) e.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             stage.close();
-
-            Parent root = FXMLLoader.load(getClass().getResource("/superMarket/viewFXML/Home.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/Home.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -112,8 +111,22 @@ public class ServicesFormControl implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        table.getItems().addAll(SC.getNamesProduct());
+        if (bill != null) {
+            bill.setText("*****************************  فاتوره******************************\n");
+        } else {
+            // Handle the case where bill is null, such as logging an error or displaying a message
+            System.err.println("Error: Bill text area is null.");
+        }
+
+        if (table != null) {
+            table.getItems().addAll(SC.getNamesProduct());
+        } else {
+            // Handle the case where table is null, such as logging an error or displaying a message
+            System.err.println("Error: Table is null.");
+        }
+
         num = 0;
-        bill.setText("*****************************  فاتوره******************************\n");
     }
+
+
 }
