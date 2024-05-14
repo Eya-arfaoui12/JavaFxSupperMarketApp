@@ -15,7 +15,7 @@ import java.io.IOException;
 public class HomeControl {
 
     @FXML
-    Button btnS,btnE,btnP,btnSt;
+    Button btnS,btnE,btnP;
     public void openProducts(Event e) throws IOException {
         Node node = (Node) e.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
@@ -40,12 +40,5 @@ public class HomeControl {
         stage.setScene(scene);
         stage.show();
     }
-    public void openStatistics(Event e) throws IOException {
-        Node node = (Node) e.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/View/Statistic.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+
 }

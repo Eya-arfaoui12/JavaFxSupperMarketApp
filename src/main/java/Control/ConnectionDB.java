@@ -13,7 +13,7 @@ public class ConnectionDB {
 
     public static Connection openConnection() throws SQLException {
         if (conn == null || conn.isClosed()) {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/tunisiamarket", "root", "");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tunisiamarket", "root", "");
         }
         return conn;
     }

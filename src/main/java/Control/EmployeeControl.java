@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import ModelEmployee.EmployeeModel;
-import ModelProduct.ProductModel;
+
 
 public class EmployeeControl {
 

@@ -21,9 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import Control.EmployeeControl;
-import Control.ProductControl;
 import ModelEmployee.EmployeeModel;
-import ModelProduct.ProductModel;
 
 public class EmployeeFormControl implements Initializable{
 
@@ -148,7 +146,7 @@ public class EmployeeFormControl implements Initializable{
             Stage stage = (Stage) node.getScene().getWindow();
             stage.close();
 
-            Parent root = FXMLLoader.load(getClass().getResource("/superMarket/viewFXML/Home.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/Employe.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
