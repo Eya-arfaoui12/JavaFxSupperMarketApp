@@ -1,6 +1,6 @@
 package Control;
 
-import java.sql.connection;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,17 +17,17 @@ public class ServicesControl {
     Statement state;
 
 
-    public void update(String name,int number)
-    {
+    public void update(ProductModel product) {
         try {
-            state = ConnectionDB.openConnection().createStatement();
-            state.executeUpdate("UPDATE Products set  `number` = "+number +" where name = '"+name+"'");
-            ConnectionDB.closeConnection(connection);
+            Connection connection = ConnectionDB.openConnection(); // Obtiens une nouvelle connexion
+            state = connection.createStatement();
+            state.executeUpdate("UPDATE product SET name = '" + product.getName() + "', number = " + product.getNumber() + ", price = " + product.getPrice() + ", type = '" + product.getType() + "', discount = " + product.getDiscount() + " WHERE id = " + product.getId());
+            ConnectionDB.closeConnection(connection); // Ferme la connexion
         } catch (SQLException ex) {
             Logger.getLogger(ProductControl.class.getName()).log(Level.SEVERE, null, ex);
-            ConnectionDB.closeConnection();
         }
     }
+
 
     public ObservableList<String> getNamesProduct()
     {
@@ -50,27 +50,28 @@ public class ServicesControl {
         return product;
     }
 
-    public ObservableList<String> getSearchNamesProduct(String name)
-    {
-        ObservableList<String> product =FXCollections.observableArrayList();
+    public ObservableList<String> getSearchNamesProduct(String name) {
+        ObservableList<String> product = FXCollections.observableArrayList();
+        Connection connection = null; // Déclaration de la connexion
         try {
-            state = ConnectionDB.openConnection().createStatement();
-            ResultSet result =  state.executeQuery("SELECT name FROM Products WHERE name LIKE '%"+name+"%'");
+            connection = ConnectionDB.openConnection();
+            state = connection.createStatement();
+            ResultSet result = state.executeQuery("SELECT name FROM Products WHERE name LIKE '%" + name + "%'");
 
-
-
-            while(result.next())
-            {
+            while (result.next()) {
                 product.add(result.getString(1));
-                ConnectionDB.closeConnection();
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProductControl.class.getName()).log(Level.SEVERE, null, ex);
-            ConnectionDB.closeConnection();
+        } finally {
+            if (connection != null) {
+                ConnectionDB.closeConnection(connection);
+            }
         }
 
         return product;
     }
+
 
 
     public ProductModel getProduct(String name)
@@ -101,4 +102,6 @@ public class ServicesControl {
     }
 
 
+    public void update(String value, int i) {
+    }
 }

@@ -3,7 +3,6 @@ package ViewControl;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,35 +10,32 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.print.Printer;
-import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import Control.ServicesControl;
 import ModelProduct.ProductModel;
 
-
-public class ServicesFormControl implements Initializable{
+public class ServicesFormControl implements Initializable {
 
     @FXML
     private TextField txtNumber;
     @FXML
     private TextField txtPrice;
     @FXML
-    private TextField txtDiscount ;
+    private TextField txtDiscount;
     @FXML
-    private TextField txtSearch ;
+    private TextField txtSearch;
     @FXML
-    private Button btnAdd ;
+    private Button btnAdd;
     @FXML
     private Button btnSearch;
     @FXML
@@ -47,23 +43,20 @@ public class ServicesFormControl implements Initializable{
     @FXML
     private Button print;
     @FXML
-    private ComboBox table;
+    private ComboBox<String> table; // Utilisation de types génériques pour ComboBox
     @FXML
     private TextArea bill;
     @FXML
-    private Label ltotal ;
-
+    private Label ltotal;
 
     int numProduct;
-    double total=0;
-    int num =0;
+    double total = 0;
+    int num = 0;
     ServicesControl SC = new ServicesControl();
     ProductModel pr = new ProductModel();
 
-    public void Back(Event e)
-    {
+    public void back(Event e) {
         try {
-            //add you loading or delays - ;-)
             Node node = (Node) e.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             stage.close();
@@ -74,47 +67,40 @@ public class ServicesFormControl implements Initializable{
             stage.show();
 
         } catch (Exception ex) {
-            System.out.println("y"+ex.getMessage());
+            System.out.println("Error: " + ex.getMessage());
         }
     }
 
-    public void Search(){
+    public void search() { // Renommage de la méthode en minuscules selon les conventions de nommage Java
         table.getItems().clear();
-        table.getItems().addAll( SC.getSearchNamesProduct(txtSearch.getText()));
-
+        table.getItems().addAll(SC.getSearchNamesProduct(txtSearch.getText()));
     }
 
-    public void clickTable(Event e)
-    {
-        String  product =  (String) table.getSelectionModel().getSelectedItem();
+    public void clickTable(Event e) {
+        String product = table.getSelectionModel().getSelectedItem();
         pr = SC.getProduct(product);
-        txtPrice.setText(pr.getPrice()+"");
-        txtDiscount.setText(pr.getDiscount()+"");
-        numProduct=pr.getNumber();
+        txtPrice.setText(String.valueOf(pr.getPrice()));
+        txtDiscount.setText(String.valueOf(pr.getDiscount()));
+        numProduct = pr.getNumber();
     }
 
-    public void Buy(){
-        String s=bill.getText();
-        SC.update(table.getValue()+"",numProduct-(Integer.parseInt( txtNumber.getText() )));
-        bill.setText(s+"Name Of Product : "+table.getValue()+"\n"+"Price Of Product : "+txtPrice.getText()+"\n"
-                +"Discount Of Product : "+txtDiscount.getText()+"%\n--------------------------------------\n"
-        );
+    public void buy() {
+        String s = bill.getText();
+        SC.update(table.getValue(), numProduct - Integer.parseInt(txtNumber.getText()));
+        bill.setText(s + "Name Of Product : " + table.getValue() + "\n" + "Price Of Product : " + txtPrice.getText() + "\n"
+                + "Discount Of Product : " + txtDiscount.getText() + "%\n--------------------------------------\n");
 
         txtNumber.setText("");
         double x = Double.parseDouble(txtPrice.getText());
         int y = Integer.parseInt(txtDiscount.getText());
-        total+=x-(x*(y/100.0));
-        ltotal.setText(total+"");
+        total += x - (x * (y / 100.0));
+        ltotal.setText(String.valueOf(total));
     }
 
-    public void Print() {
-
-
-
+    public void print() {
         try {
             num++;
-
-            PrintWriter f = new PrintWriter("bill "+String.valueOf(num)+".txt");
+            PrintWriter f = new PrintWriter("bill " + String.valueOf(num) + ".txt");
             f.println(bill.getText());
             f.close();
         } catch (FileNotFoundException ex) {
@@ -122,18 +108,12 @@ public class ServicesFormControl implements Initializable{
         }
 
         bill.setText("");
-
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        table.getItems().addAll( SC.getNamesProduct());
-        num=0;
+        table.getItems().addAll(SC.getNamesProduct());
+        num = 0;
         bill.setText("*****************************  فاتوره******************************\n");
     }
-
-
-
-
 }
-
